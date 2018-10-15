@@ -41,10 +41,21 @@
         class: "movie-poster img-fluid rounded mx-auto d-block" %>
     </div>
     <div class="col-md-9">
-      <button type="button" class="btn btn-warning float-right btn-lg"
-        data-toggle="modal" data-target="#trailer_modal">
-          <%= t ".trailer" %>
-      </button>
+      <div class="movie-button float-right">
+        <%= link_to movie_bookmarks_path(@movie), method: :post,
+          class: "btn btn-outline-primary", id: "bookmark" do %>
+
+          <% if @movie.bookmarked? current_user %>
+            <i class="fas fa-bookmark fa-2x"></i>
+          <% else %>
+            <i class="far fa-bookmark fa-2x"></i>
+          <% end %>
+        <% end %>
+        <button type="button" class="btn btn-warning btn-lg"
+          data-toggle="modal" data-target="#trailer_modal">
+            <%= t ".trailer" %>
+        </button>
+      </div>
       <h2 class="p-1 movie-name text-danger">
         <%= @movie.name %>
       </h2>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_12_084637) do
+ActiveRecord::Schema.define(version: 2018_10_15_032807) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2018_10_12_084637) do
   create_table "movies_people", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "movie_id"
     t.integer "person_id"
-    t.boolean "role", default: false
+    t.integer "role", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["movie_id", "person_id"], name: "index_movies_people_on_movie_id_and_person_id"

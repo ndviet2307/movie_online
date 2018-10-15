@@ -6,17 +6,17 @@ class Supports::Movie
   end
 
   def features
-    @features ||= Movie.load_by_type(:features)
-                       .limit(Settings.movies_controller.number_movie)
+    @features ||= Movie.features
+                       .limit Settings.movies_controller.number_movie
   end
 
   def series
-    @series ||= Movie.load_by_type(:series)
-                     .limit(Settings.movies_controller.number_movie)
+    @series ||= Movie.series
+                     .limit Settings.movies_controller.number_movie
   end
 
   def hots
-    @hots ||= Movie.load_by_type(:hots)
-                   .limit(Settings.movies_controller.number_movie)
+    @hots ||= Movie.hots
+                   .limit Settings.movies_controller.number_movie
   end
 end

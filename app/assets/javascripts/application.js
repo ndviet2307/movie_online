@@ -2,6 +2,7 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require plyr/dist/plyr.min
+//= require @fortawesome/fontawesome-free/js/all.min
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks

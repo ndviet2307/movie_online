@@ -2,6 +2,8 @@
   "name": "movie_online",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.4.1",
+    "hover.css": "^2.3.2",
     "plyr": "^3.4.4"
   }
 }

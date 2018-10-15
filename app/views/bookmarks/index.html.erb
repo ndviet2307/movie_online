@@ -1,0 +1,23 @@
+<% provide :title, t(".title") %>
+<div class="container my-3">
+  <h3 class="text-center">
+    <%= t ".head_text" %>
+  </h3>
+  <div class="row my-3">
+    <% @bookmarked_movies.each do |movie| %>
+      <div class="col-md-3">
+        <%= link_to movie_path(movie),
+          class: "bookmark-item-link text-center mb-2" do %>
+          <%= image_tag movie.poster,
+            class: "img-fluid mx-auto d-block rounded" %>
+          <span class="text-center"><%= movie.name %></span>
+        <% end %>
+        <%= link_to movie_bookmarks_path(movie),
+          class: "btn btn-outline-danger btn-block", method: :post do %>
+          <span aria-hidden="true" class="h4">&times;</span>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <%= paginate @bookmarked_movies, theme: "twitter-bootstrap-4" %>
+</div>

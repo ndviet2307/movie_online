@@ -26,5 +26,9 @@
 }(jQuery));
 
 $(document).on("turbolinks:load", function(){
+  FontAwesome.dom.watch({
+    autoReplaceSvgRoot: document,
+    observeMutationsRoot: document.body
+  })
   const player = new Plyr('#player');
 });
