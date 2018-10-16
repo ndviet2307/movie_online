@@ -13,7 +13,20 @@ class MoviesController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    cookies.permanent.encrypted[:uuid] = SecureRandom.uuid unless cookies[:uuid]
+
+    view_times = ViewCount.find_by uuid: cookies.encrypted[:uuid],
+                             movie: @movie
+
+    unless view_times
+      @movie.view_counts.create! uuid: cookies.encrypted[:uuid],
+        created_at: Time.now
+    end
+
+    @movie.increment! :view_count
+    @movie.save
+  end
 
   private
 
